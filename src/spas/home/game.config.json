@@ -1,0 +1,9 @@
+{
+    "name": "Kitty Catch",
+    "description": "Click on the kitty's icon to get points.",
+    "game": {
+        "maxScore": 10,
+        "timeToWinInCemiseconds": 2500,
+        "messages": ["Hello Kitty", "Let's play", "Click on the kitty's icon $MAXSCORE times before time ends"]
+    }
+}

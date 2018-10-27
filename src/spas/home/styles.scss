@@ -1,6 +1,183 @@
 /* PUT STYLES HERE */
+@media all { 
 
-svg {
-    width: 100px;
-    height: 100px;
+    /* RESETTING*/
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .spa-wrapper{
+        background: #000;
+        text-align: center;
+        font-family: 'VT323', monospace;
+        overflow: hidden;
+        color: #fff;
+        font-size: 16px;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    /* GAME SCREEN */
+    .gameField {
+        position: relative;
+        transform: translate(-10%, 0);
+        width: 100vw;
+        height: 100px;
+        top: 0;
+        left: 0;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        flex-wrap: wrap;
+    }
+
+    .game-stats-text {
+        font-size: 1.8rem;
+        user-select: none;
+    }
+
+    .icon{
+        color: rgb(0, 191, 255);;
+        animation: hue 2s infinite ease;
+    }
+
+    .icon:before{
+        vertical-align: text-bottom!important;
+    }
+
+    .targetIcon {
+        width: 100%;
+        height: auto;
+        fill: rgb(0, 191, 255);
+        position: absolute;
+        animation: hue 2s infinite ease-in-out, rotation 4s infinite linear alternate;
+        outline: none;
+        transition: width 0.1s ease-in, height 0.1s ease-in;
+        path {
+            cursor: pointer;
+        }
+    }
+
+    .wrap {
+        width: 10%;
+        position: absolute;
+        transition: transform 0.1s ease-in, top 1.5s linear, left 1.5s linear;
+    }
+
+    .wrap.clicked {
+        transform-origin: center;
+        transform: scale(1.1);
+        .targetIcon{
+            fill: white;
+            width: 100%;
+            
+        }
+    }
+
+    /* WELCOME SCREEN && WINNER/LOST SCREEN */ 
+
+    .welcome-winning-screen{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .welcome-winning-text {
+        font-size: 2.5rem;
+        width: 65%;
+        line-height: 1.5em;
+        letter-spacing: 0.2em;
+        align-self: center;
+        text-align: center;
+        user-select: none;
+    }
+
+    .restart-button{
+        font-family: 'VT323', monospace;
+        font-size: 1.5rem;
+        background-color: transparent;
+        color: #fff;
+        border: 2px solid #fff;
+        border-radius: 5px;
+        margin-top: 30px;
+        padding: 15px 20px;
+        cursor: pointer;
+        user-select: none;
+        outline: none;
+    }
+
+    .restart-button:hover{
+        animation: hue 1s infinite ease;
+        background-color: rgb(0, 191, 255);
+        color:  #fff;
+    }
+
+
+    /* ANIMATIONS */ 
+    @keyframes hue {
+        from {
+            filter: hue-rotate(0deg);
+        }
+
+        to {
+            filter: hue-rotate(360deg);
+        }
+    }
+
+    @keyframes rotation {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(359deg);
+        }
+    }
+}
+
+@media (max-width: 768px) { 
+    /* GAME SCREEN */
+    .wrap {
+        width: 12%;
+    }
+}
+
+@media (max-width: 750px) { 
+    /* GAME SCREEN */
+    .wrap {
+        width: 15%;
+    }
+}
+
+@media (max-width: 576px) {  
+    /* GAME SCREEN */
+    nav {
+        flex-direction: column-reverse;
+        text-align: left;
+    }
+    .wrap {
+        width: 18%;
+    }
+    .game-stats-text {
+        line-height: 1.5em;
+        font-size: 1.5rem;
+    }
+
+}
+
+@media (max-width: 420px) {  
+    /* GAME SCREEN */
+    .game-stats-text {
+        font-size: 1.2rem;
+    }
+    .wrap {
+        width: 25%;
+    }
 }

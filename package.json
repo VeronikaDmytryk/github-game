@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo sorry no tests",
     "clear": "rm -rf dist/home && rm -rf dist/main && rm -rf dist/tree-shake",
-    "start": "webpack-dev-server --content-base dist/",
-    "build": "NODE_ENV='production' webpack -p --optimize-minimize"
+    "start": "webpack -d && copy src\\index.html dist\\index.html && copy src\\favicon.png dist\\favicon.png && webpack-dev-server --content-base dist/",
+    "build": "SET \"NODE_ENV='production'\" && webpack -p --optimize-minimize && copy src\\index.html dist\\index.html && copy src\\favicon.png dist\\favicon.png"
   },
   "repository": {
     "type": "git",
